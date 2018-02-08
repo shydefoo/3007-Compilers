@@ -31,11 +31,14 @@ import static frontend.Token.Type.*;
 	 *       but they should not be part of the lexeme. 
 	*/
 	private Token token(Token.Type type, String text) {
-		System.out.println(text);
-		String lexeme = text.substring(1,text.length()-1);
+		if(type==STRING_LITERAL){
+			System.out.println(text);
+			String lexeme = text.substring(1,text.length()-1);
+			return new Token(type,yyline, yycolumn, lexeme);
+		}else{
+			return new Token(type, yyline,yycolumn,yytext());
+		}
 		
-		System.out.println(lexeme);
-		return new Token(type,yyline, yycolumn, lexeme);
 	}
 %}
 
@@ -44,13 +47,11 @@ WhiteSpace = [ ] | \t | \f | \n | \r
 
 DIGIT = [0-9]
 ID = [a-zA-Z][a-zA-Z0-9_]*
-//INT_LITERAL = [0-9]+\.?[0-9]*
 STRING_LITERAL = \"[^\"]*\"
 
 
 %%
 /* put in your rules here.    */
-
 boolean				{return token(BOOLEAN);}
 break				{return token(BREAK);}
 else				{return token(ELSE);}
@@ -65,7 +66,6 @@ true				{return token(TRUE);}
 type 				{return token(TYPE);}
 void 				{return token(VOID);}
 while				{return token(WHILE);}
-
 ,					{return token(COMMA);}
 \[					{return token(LBRACKET);}
 \{					{return token(LCURLY);}
@@ -74,8 +74,6 @@ while				{return token(WHILE);}
 \}					{return token(RCURLY);}
 \)					{return token(RPAREN);}
 ;					{return token(SEMICOLON);}
-
-
 \/					{return token(DIV);}
 \=\=				{return token(EQEQ);}
 \=					{return token(EQL);}
@@ -86,11 +84,8 @@ while				{return token(WHILE);}
 \!\= 				{return token(NEQ);}
 \+					{return token(PLUS);}
 \*					{return token(TIMES);}
-\*
-
-
 ({DIGIT})+			{return token(INT_LITERAL);}
-{ID}				{return token(ID);}
+{ID}				{return token(ID,yytext());}
 {STRING_LITERAL}	{return token(STRING_LITERAL, yytext());}
 {WhiteSpace} 		{/*Do nothing*/}
 

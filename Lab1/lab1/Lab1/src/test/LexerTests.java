@@ -103,7 +103,7 @@ public class LexerTests {
 				new Token(ID, 0, 0, "apple"),
 				new Token(EQL,0,6,"="),
 				new Token(INT_LITERAL, 0,8,"45"),
-				new Token(EOF, 0, 5, ""));
+				new Token(EOF, 0, 10, ""));
 	}
 	
 	
