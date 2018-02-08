@@ -1,0 +1,13 @@
+2018-02-08 00:20:04,507 [Worker-0] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-02-08 00:20:25,336 [Start Help Server] INFO  org.eclipse.jetty.util.log - Logging initialized @274794ms
+2018-02-08 00:20:25,531 [Start Help Server] INFO  org.eclipse.jetty.server.Server - jetty-9.3.9.v20160517
+2018-02-08 00:20:25,621 [Start Help Server] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@6c1ce20c{/help,null,AVAILABLE}
+2018-02-08 00:20:25,639 [Start Help Server] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@151a8e15{HTTP/1.1,[http/1.1]}{127.0.0.1:51950}
+2018-02-08 00:20:25,640 [Start Help Server] INFO  org.eclipse.jetty.server.Server - Started @275099ms
+2018-02-08 00:23:29,999 [Stop Help Server] INFO  o.e.jetty.server.AbstractConnector - Stopped ServerConnector@151a8e15{HTTP/1.1,[http/1.1]}{127.0.0.1:0}
+2018-02-08 00:23:30,023 [Stop Help Server] INFO  o.e.j.server.handler.ContextHandler - Stopped o.e.j.s.ServletContextHandler@6c1ce20c{/help,null,UNAVAILABLE}
+2018-02-08 00:23:50,779 [Worker-1] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-02-08 00:27:29,430 [Worker-2] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-02-08 00:28:37,745 [Worker-0] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-02-08 00:34:25,037 [Worker-1] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-02-08 00:41:57,481 [Worker-3] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
