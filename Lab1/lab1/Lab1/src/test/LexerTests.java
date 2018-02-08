@@ -78,15 +78,32 @@ public class LexerTests {
 	}
 	@Test
 	public void testIntLiteral() {
-		runtest("5", 
-				new Token(INT_LITERAL, 0, 0, "5"),
-				new Token(EOF, 0, 6, ""));
+		runtest("5000", 
+				new Token(INT_LITERAL, 0, 0, "5000"),
+				new Token(EOF, 0, 4, ""));
 	}
 	@Test
 	public void testId() {
-		runtest("temp", 
-				new Token(ID, 0, 0, "temp"),
-				new Token(EOF, 0, 6, ""));
+		runtest("apple123", 
+				new Token(ID, 0, 0, "apple123"),
+				new Token(EOF, 0, 8, ""));
+	}
+	
+	@Test
+	public void testEQEQ() {
+		runtest("==", 
+				new Token(EQEQ, 0, 0, "=="),
+				new Token(EOF, 0, 2, ""));
+	}
+	
+	
+	@Test
+	public void testIDEqlInt_Lit() {
+		runtest("apple = 45", 
+				new Token(ID, 0, 0, "apple"),
+				new Token(EQL,0,6,"="),
+				new Token(INT_LITERAL, 0,8,"45"),
+				new Token(EOF, 0, 5, ""));
 	}
 	
 	

@@ -31,27 +31,68 @@ import static frontend.Token.Type.*;
 	 *       but they should not be part of the lexeme. 
 	*/
 	private Token token(Token.Type type, String text) {
+		System.out.println(text);
+		String lexeme = text.substring(1,text.length()-1);
 		
+		System.out.println(lexeme);
+		return new Token(type,yyline, yycolumn, lexeme);
 	}
 %}
 
 /* This definition may come in handy. If you wish, you can add more definitions here. */
 WhiteSpace = [ ] | \t | \f | \n | \r
 
-ID = [a-zA-Z][\w\d]*
-Int_literal = \d+\.?\d*
-//String_literal = \"[^'"]*\"
+DIGIT = [0-9]
+ID = [a-zA-Z][a-zA-Z0-9_]*
+//INT_LITERAL = [0-9]+\.?[0-9]*
+STRING_LITERAL = \"[^\"]*\"
+
 
 %%
 /* put in your rules here.    */
-{WhiteSpace} 		{/*Do nothing*/}
-{Int_literal}		{return token(INT_LITERAL);}
 
 boolean				{return token(BOOLEAN);}
-module				{return token(MODULE);}
+break				{return token(BREAK);}
+else				{return token(ELSE);}
 false				{return token(FALSE);}
+if					{return token(IF);}
+import				{return token(IMPORT);}
+int 				{return token(INT);}
+module				{return token(MODULE);}
+public				{return token(PUBLIC);}
 return 				{return token(RETURN);}
+true				{return token(TRUE);}
+type 				{return token(TYPE);}
+void 				{return token(VOID);}
 while				{return token(WHILE);}
+
+,					{return token(COMMA);}
+\[					{return token(LBRACKET);}
+\{					{return token(LCURLY);}
+\(					{return token(LPAREN);}
+\]					{return token(RBRACKET);}
+\}					{return token(RCURLY);}
+\)					{return token(RPAREN);}
+;					{return token(SEMICOLON);}
+
+
+\/					{return token(DIV);}
+\=\=				{return token(EQEQ);}
+\=					{return token(EQL);}
+\>\=				{return token(GEQ);}
+\>					{return token(GT);}
+\<\=				{return token(LT);}
+\-					{return token(MINUS);}
+\!\= 				{return token(NEQ);}
+\+					{return token(PLUS);}
+\*					{return token(TIMES);}
+\*
+
+
+({DIGIT})+			{return token(INT_LITERAL);}
+{ID}				{return token(ID);}
+{STRING_LITERAL}	{return token(STRING_LITERAL, yytext());}
+{WhiteSpace} 		{/*Do nothing*/}
 
 /* You don't need to change anything below this line. */
 .							{ throw new Error("unexpected character '" + yytext() + "'"); }
