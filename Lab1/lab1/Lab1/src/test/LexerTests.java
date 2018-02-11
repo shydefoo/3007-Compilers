@@ -106,6 +106,61 @@ public class LexerTests {
 				new Token(EOF, 0, 10, ""));
 	}
 	
+	@Test
+	public void testKeyword() {
+		runtest("Break", 
+				new Token(Type.ID, 0, 0, "Break"),
+				new Token(EOF, 0, 5, ""));
+	}	
 	
+	@Test
+	public void testOperators() {
+		runtest("/ * + - = == != >= > <= <", 
+				new Token(DIV, 0, 0, "/"),
+				new Token(TIMES, 0, 2, "*"),
+				new Token(PLUS, 0, 4, "+"),
+				new Token(MINUS, 0, 6, "-"),
+				new Token(EQL, 0, 8, "="),
+				new Token(EQEQ, 0, 10, "=="),
+				new Token(NEQ, 0, 13, "!="),
+				new Token(GEQ, 0, 16, ">="),
+				new Token(GT, 0, 19, ">"),
+				new Token(LEQ, 0, 21, "<="),
+				new Token(LT, 0, 24, "<"),
+				new Token(EOF, 0, 25, ""));
+	}
+	
+	@Test
+	public void testPunctuation() {
+		runtest(", [ { ( ] } ) ;", 
+				new Token(COMMA, 0, 0, ","),
+				new Token(LBRACKET, 0, 2, "["),
+				new Token(LCURLY, 0, 4, "{"),
+				new Token(LPAREN, 0, 6, "("),
+				new Token(RBRACKET, 0, 8, "]"),
+				new Token(RCURLY, 0, 10, "}"),
+				new Token(RPAREN, 0, 12, ")"),
+				new Token(SEMICOLON, 0, 14, ";"),
+				new Token(EOF, 0, 15, ""));
+	}
+	
+	@Test
+	public void testIfElse() {
+		runtest("if(true){return;}else{return;}", 
+				new Token(Type.IF, 0, 0, "if"),
+				new Token(Type.LPAREN, 0, 2, "("),
+				new Token(Type.TRUE, 0, 3, "true"),
+				new Token(Type.RPAREN, 0, 7, ")"),
+				new Token(Type.LCURLY, 0, 8, "{"),
+				new Token(Type.RETURN, 0, 9, "return"),
+				new Token(Type.SEMICOLON, 0, 15, ";"),
+				new Token(Type.RCURLY, 0, 16, "}"),
+				new Token(Type.ELSE, 0, 17, "else"),
+				new Token(Type.LCURLY, 0, 21, "{"),
+				new Token(Type.RETURN, 0, 22, "return"),
+				new Token(Type.SEMICOLON, 0, 28, ";"),
+				new Token(Type.RCURLY, 0, 29, "}"),
+				new Token(EOF, 0, 30, ""));
+	}
 
 }
