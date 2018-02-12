@@ -131,6 +131,24 @@ public class LexerTests {
 	}
 	
 	@Test
+	public void specialCase() {
+		runtest("if(apple==banana){\n apple=45;}", 
+				new Token(IF, 0, 0, "if"),
+				new Token(LPAREN, 0, 2, "("),
+				new Token(ID, 0, 3, "apple"),
+				new Token(EQEQ, 0, 8, "=="),
+				new Token(ID, 0, 10, "banana"),
+				new Token(RPAREN, 0,16,")"),
+				new Token(LCURLY, 0, 17, "{"),
+				new Token(ID, 1, 1, "apple"),
+				new Token(EQL, 1, 6, "="),
+				new Token(INT_LITERAL, 1, 7, "45"),
+				new Token(SEMICOLON, 1, 9, ";"),
+				new Token(RCURLY, 1, 10, "}"),
+				new Token(EOF, 1, 11, ""));
+	}
+	
+	@Test
 	public void testPunctuation() {
 		runtest(", [ { ( ] } ) ;", 
 				new Token(COMMA, 0, 0, ","),
