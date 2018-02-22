@@ -79,7 +79,8 @@ while				{return token(WHILE);}
 \=					{return token(EQL);}
 \>\=				{return token(GEQ);}
 \>					{return token(GT);}
-\<\=				{return token(LT);}
+\<\=					{return token(LEQ);}
+\<					{return token(LT);}
 \-					{return token(MINUS);}
 \!\= 				{return token(NEQ);}
 \+					{return token(PLUS);}
