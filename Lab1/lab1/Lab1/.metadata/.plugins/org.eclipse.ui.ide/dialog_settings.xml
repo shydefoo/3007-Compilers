@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="D:\Y4S2\CZ3007 Compiler Techniques\3007_Compilers\Lab1"/>
 		<item value="/Users/Shide/Documents/CS/Y3Sem2/CZ3007/Lab/Lab1/lab1"/>
 		<item value="/Users/Shide/Documents/CS/Y3Sem2/CZ3007/Lab/Lab1/lab1/Lab1"/>
 	</list>
