@@ -1,0 +1,22 @@
+INDEX VERSION 1.130+/Users/Shide/Documents/CS/Y3Sem2/CZ3007/Lab/Lab2/lab2/.metadata/.plugins/org.eclipse.jdt.core
+4238018145.index
+3131291862.index
+4036230714.index
+2696568052.index
+1397823880.index
+3670248649.index
+3327406048.index
+2363563081.index
+506999199.index
+3735975305.index
+2867016645.index
+1271342938.index
+1315525803.index
+521061135.index
+1969767409.index
+1753319412.index
+2634225966.index
+3767115374.index
+2188923391.index
+404199878.index
+1067258947.index
