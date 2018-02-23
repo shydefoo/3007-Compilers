@@ -38,17 +38,24 @@ Accessibility = PUBLIC
 
 Module = MODULE ID LCURLY Imports Declarations RCURLY;
 
-Imports = IMPORT ID SEMICOLON Imports
-	| 
-	;
-	
-Declaration = Function | Field | Type_D;
-
-Declarations = Declaration DeclarationTail;
-
-DeclarationTail = Declaration DeclarationTail
+Imports = Import Imports
 	|
 	;
+Import = IMPORT ID SEMICOLON
+	;
+
+	
+
+
+Declarations = Declaration Declarations
+				|
+				;
+
+Declaration = Function 
+			| Field 
+			| Type_D 
+			;
+
 
 Function = Accessibility Type_Name ID LPAREN ParamList RPAREN LCURLY StatementList RCURLY;
 
@@ -58,6 +65,7 @@ Type_D = Accessibility TYPE ID EQL STRING_LITERAL SEMICOLON;
 
 Type_Name = Primitive 
 		| Array 
+		| ID
 		;
 
 Primitive = VOID | BOOLEAN | INT;
@@ -111,7 +119,7 @@ Expression = Assignment
 	
 Assignment = LHS_Expression EQL Expression;
 
-LHS_Expression = ID
+LHS_Expression = Type_Name
 	| Array_Access
 	;
 	
