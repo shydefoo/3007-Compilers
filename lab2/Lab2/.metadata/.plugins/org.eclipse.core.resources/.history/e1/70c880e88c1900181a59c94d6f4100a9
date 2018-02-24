@@ -1,0 +1,198 @@
+package test;
+
+import static org.junit.Assert.fail;
+
+import java.io.StringReader;
+
+import lexer.Lexer;
+
+import org.junit.Test;
+
+import parser.Parser;
+
+public class ParserTests {
+	private void runtest(String src) {
+		runtest(src, true);
+	}
+
+	private void runtest(String src, boolean succeed) {
+		Parser parser = new Parser();
+		try {
+			parser.parse(new Lexer(new StringReader(src)));
+			if(!succeed) {
+				fail("Test was supposed to fail, but succeeded");
+			}
+		} catch (beaver.Parser.Exception e) {
+			if(succeed) {
+				e.printStackTrace();
+				fail(e.getMessage());
+			}
+		} catch (Throwable e) {
+			e.printStackTrace();
+			fail(e.getMessage());
+		}
+	}
+
+	@Test
+	public void testEmptyModule() {
+		runtest("module Test { }");
+	}
+	
+	
+	@Test
+	public void testFunctionCall(){
+		//Function = Accessibility Type_Name ID LPAREN ParamList RPAREN LCURLY StatementList RCURLY;
+		//testing function with empty parameter and empty statement
+		runtest("module Test {public int test() { }}");
+		
+		//testing functions with parameter
+		runtest("module Test{ public int test(int x) { } }");
+		//testing functions with statement
+		runtest("module Test{ public int test() {int x;} }");
+		runtest("module Test{ public int test() { test(x=0); } }");
+		runtest("module Test{ public int test() { test(x=0, y=1); } }");		
+		runtest("module Test{ public int test() { test(x=1); } }");
+		runtest("module Test{ public int test() { test(x,y); } }");
+		runtest("module Test{ public int test() { test(x,1); } }");
+		
+		//testing functions that should not work
+		//runtest("module Test{ public int test() {21} }", false);
+	}
+	
+	@Test
+	public void testLocalVariableDeclaration() {
+		runtest("module Test { int x; int[] y; String z; }");
+	}
+	
+	@Test
+	public void testBooleanLiteral(){
+		//test precondition
+		runtest("module Test{ public int test() {  } }");
+		
+		//start test
+		runtest("module Test{ public int test() { true; } }");
+		runtest("module Test{ public int test() { false; } }");
+	}
+	
+	@Test
+	public void testBlockStatement() {
+		runtest("module Test { public void test() { if(a-b<1) {} while(c == true) {} while(c == true) {break;} if(c == true) {return;}} }");
+	}
+	
+	@Test
+	public void testIfStatement() {
+		//if else
+		runtest("module Test { int x; int y; public void test(){ if(a-b<1) {int x;} else {int y;} } }");
+		//if without else
+		runtest("module Test { int x; int y; public void test(){ if(a-b<1) {int x;} } }");
+	}
+	
+	@Test
+	public void testWhileStatement() {
+		runtest("module Test { public void test() { while(c == true) {} } }");
+	}
+	
+	@Test
+	public void testBreakStatement() {
+		runtest("module Test { public void test() { if (x == y) {break;} } }");
+	}
+	
+	@Test
+	public void testReturnStatement() {
+		runtest("module Test { public void test() { if (x == y) {return;} } }");
+	}
+	
+	@Test
+	public void testLHSExpressionStatement() {
+		//LHS_Expression = Type_Name | Array_Access;
+		//Array_Access = LHS_Expression LBRACKET Expression RBRACKET;
+		//Expression = Assignment | RHS_Expression;
+		runtest("module Test { int a; boolean b; int[] a;}");
+	}
+	
+	@Test
+	public void testAssignment(){
+		//test precondition
+		runtest("module Test{ public int test() {  } }");
+		
+		runtest("module Test{ public int test() { a=1; } }");
+		runtest("module Test{ public int test() { a=b=c=3; } }");
+		runtest("module Test{ public int test() { a=a()==true==false==123==-3; } }",false);
+	}
+	
+	@Test
+	public void testRHSAssignment(){
+		//test precondition
+		runtest("module Test{ public int test() {  } }");
+		
+		runtest("module Test{ public int function_name() { a()==true; } }");
+		runtest("module Test{ public int function_name() { a()!=1; } }");
+		runtest("module Test{ public int function_name() { a()<\"abc\"; } }");
+		runtest("module Test{ public int function_name() { a()>a(); } }");
+		runtest("module Test{ public int function_name() { a()<=a(); } }");
+		runtest("module Test{ public int function_name() { a()>=true; } }");
+		runtest("module Test{ public int function_name() { -123*-\"abc\"--true*-a[1]==-abc(a=1)*-3+-abc(a=1)*def(); } }"); 
+	}
+	
+	@Test
+	public void testArithmeticExpression(){
+		//test precondition
+		runtest("module Test{ public int test() {  } }");
+		
+		runtest("module Test{ public int test() { -123*-\"abc\"--true*-a[1]; } }");
+		runtest("module Test{ public int test() { -abc(a=1)*-3+-abc(a=1)*def(); } }");
+	}
+	
+	@Test
+	public void testTerm(){
+		//term followed by a multiplicative operator followed by a factor
+		runtest("module Test{ public int test() { -123*-\"abc\"; } }"); 
+		runtest("module Test{ public int test() { -true*-[a=1]; } }");
+		runtest("module Test{ public int test() { -abc(a=1)*-3; } }");
+		runtest("module Test{ public int test() { -abc(a=1)*def(); } }");
+	}
+	
+	@Test
+	public void testFactor(){
+		//minus followed by a factor
+		runtest("module Test{ public int test() { x=-1; } }");
+		runtest("module Test{ public int test() { -x(a=1); } }");
+		runtest("module Test{ public int test() { -[a=1]; } }");
+		runtest("module Test{ public int test() { -\"x\"; } }");
+		runtest("module Test{ public int test() { -123;  } }");
+		runtest("module Test{ public int test() { -true; } }");
+		runtest("module Test{ public int test() { -(a=1); } }");
+
+	}
+	
+	@Test
+	public void testPrimaryExpression() {
+		runtest("module Test{ public int test() { x=1; } }");
+		runtest("module Test{ public int test() { x(a=1); } }");
+		runtest("module Test{ public int test() { [a=1]; } }");
+		runtest("module Test{ public int test() { \"x\"; } }");
+		runtest("module Test{ public int test() { 123;  } }");
+		runtest("module Test{ public int test() { true; } }");
+		runtest("module Test{ public int test() { (a=1); } }");
+			
+	}
+	
+	
+	@Test
+	public void testArrayExpression(){
+		//test array expression 
+		runtest("module Test{ public int test() { [x]; } }");
+		runtest("module Test{ public int test() { [x=1]; } }");
+		runtest("module Test{ public int test() { [x=1,y=2]; } }");
+		runtest("module Test{ public int test() { [x,y]; } }");
+		runtest("module Test{ public int test() { [1]; } }");
+		runtest("module Test{ public int test() { [1,2]; } }");
+		
+		//test false array expression
+		runtest("module Test{ public int test() { []; } }",false);
+	}
+	
+	
+
+	
+}

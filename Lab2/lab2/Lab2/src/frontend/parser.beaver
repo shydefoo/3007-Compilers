@@ -72,7 +72,9 @@ Primitive = VOID | BOOLEAN | INT;
 
 Array = Type_Name LBRACKET RBRACKET;
 
-ParamList = Parameter ParamListTail;
+ParamList = Parameter ParamListTail
+	|
+	;
 
 ParamListTail = COMMA Parameter ParamListTail
 	| 
@@ -89,9 +91,7 @@ Statement = Local_Variable
 	| Expression_Statement
 	;
 
-StatementList = Statement StatementListTail;
-
-StatementListTail = Statement StatementListTail
+StatementList = Statement StatementList
 	|
 	;
 

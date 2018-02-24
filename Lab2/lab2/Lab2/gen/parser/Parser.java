@@ -22,8 +22,8 @@ public class Parser extends beaver.Parser {
 		static public final short INT_LITERAL = 9;
 		static public final short TRUE = 10;
 		static public final short FALSE = 11;
-		static public final short RCURLY = 12;
-		static public final short RPAREN = 13;
+		static public final short RPAREN = 12;
+		static public final short RCURLY = 13;
 		static public final short LCURLY = 14;
 		static public final short SEMICOLON = 15;
 		static public final short IF = 16;
@@ -51,32 +51,31 @@ public class Parser extends beaver.Parser {
 	}
 
 	static final ParsingTables PARSING_TABLES = new ParsingTables(
-		"U9p5LdbKL5KO$yqR2QnXHXG2ArgKM4H0G3GjsK8GHCL2osmlMz0sonRJDBNCfJodJdLETax" +
-		"$r3dbbYsMBLQYfbAQ8bgIQOjMfcMMhLPVl$VcCZoUR#RDQDZC#Rtltc#$ztttlW$G3k8ir6" +
-		"84hi0034Cbhi6rk1ute0R5k0VduZoSZ5DmAav3Cax76JWJ6k8TRP8iDbv3VshhKnOYCM8lz" +
-		"s8QtBWFL#8gN8qen64skaQSVmUaETfaMMoSz7CYrEzjqH#96t6pMbS5nk0wZCDDyXdc89Lh" +
-		"p40l5A1lKAsvr8eEQ0qD6liI8xQJV1fywAQYd8#BvNVxk9Y54iQj2vqTKkWhLVuE8xjC8xg" +
-		"zby4OJoz$ECIw3ONCg7COiV92nBfVpnXTml3Ips4$YnparGxoonpajxIHLrdafK7MDnmNu4" +
-		"AS4yIkB8ZLyUNwSoktv1PATr1Okkt57OzOjQ#TS09FK0nFZL$dH9m4ZtoBwQpE1Dc5MR8Ja" +
-		"t4sRiSTc80xSHVkHYpbtP6E6UY87eYXl2ToaUstHJxwy1mEH7#UWY6ipO6u2ADmAKOJbsCi" +
-		"9k9MJC8K#KxsuW7Cn8Du20$Z4RJyzDiXZTupw3kJdhFeEOUrdSjJaC#Rg83##x8U#Z62Nay" +
-		"3U2SLHMpZrpS$Q$XE8lLI3XV$vRoZexYFfNotPKVXnNlK#RUVlelVJRTQLpJVSKVrTakPRH" +
-		"ch9extLfUWMedKyWIqd68xoLr677#KOjQK9qZS99ueB#MXizEvNjPPkDdPUz4uDg$HNgihl" +
-		"#PUdhLZY#NFsFkVxUV$9xTVdx#ty0Mr2xuhnuzhdzknwxONDvgzXNzVtRoDNRo5FKgdYlTo" +
-		"DMlIn#hqy9z4n7EcTu7TUA#dyBOlf3o1$6JQkcaRpxcRdL#hRJ6xAHyZ9n0bbCLIfz900lc" +
-		"n$DPKy1dBo34y0pvIdwWVRmTWtbG#EFcJP2HHHpG0hWwa7vFc0Tepf9MwNWl8Uvwy6D9dEH" +
-		"d1yMXYCj69l1VyEbZ9yGBI9j95PdihQ9TDdINAzqB5wyxnSiLRJKGJAyWl9rrCEah9rX6TY" +
-		"LNaJLAyUkLZlvgliSIh8IzPoUOJwUHLa#QJxYGjLB9Qqvgt4DmVRQMQRrLqjlsQj6t416A3" +
-		"cgzLb4HR7se$R7pD8Heil2U8fZ3jDolw7A6$Ltqlbn6VS3pJehk7Q2Hs4Sqc$dP5zn8xMlY" +
-		"idNsjEgnrQ6DCDjEFp0KUqzXdyjDi6XzIyiH8zidajt$RkIjEyMiL7MUILIZU38jDNN3$he" +
-		"dAPYF7RtATZv9kyrCjHQtTciCHTKAT9qEieTwazvZoyHJ7ZuUx3yfFeqt#2oBneNAOh$pfP" +
-		"#tf27EOQyER1$MJm$AFGVcKt#HN#GMMdnmAZBwMFR9Rlf8lvGlvN3QHiu$OOSW#3MXj9ve3" +
-		"CrQviEg5RqYsoXPf5BupsImR#FoGM4FmjfAtvIrTmj56sIGVoMfvLzwH5N9GVfG31lyLMIe" +
-		"laowLb#Gz#K6#b$toXYoNr#KrMIQl6ZeloX9PR8mMoIgfbm#aGTRBEbahxvFNr6PTtyW1#J" +
-		"am#ucLVrZ#CiRwZLpBBu2B0BjYlQ$L2B3lqxyb6W5#4rm1LF6RCvXVbshgfdBUWZGJqcaxb" +
-		"BOLf1MqB#Uu3$d1K4Jv80DWP#fcR#fcTnfDHB57ZMANgh5FrU5cjwgnyt0PwCrv3r8TcSn9" +
-		"xwaAo1j6QeSyolI#f5WXbtEzuoWn8OF#CqXxXa0MOmsXNYNjAvbpDcaE#JfwSJpyNrioh0q" +
-		"=");
+		"U9pDLdbK5LKO$ysyb9O768jQcPeYcuX0Y22oPG82agbGsaQRYfb6gLbgOdiMTQfJdUgFbdF" +
+		"Yd58KpTGMsnVRjJsJigneiInjqSo#VZDpUOtZUpEyKtXwx$pkzzrlc#$U#UQx5z0te1$6Om" +
+		"BEG3x6eWndunoSZoceHY4kHHv6e2TwuoWSZMFG1yUYB#B2zkWLjiSWJu$13Wyl#o5XscSvx" +
+		"2TYAcRWJ9o5Eep6kJWFqt41T6b3WYn54j9nF8Q5iF8PLZZ4msg9QHKHiAeAcU6fPePU#aP4" +
+		"exzwIct0kjnXNOm1j9hc4Yt5Z1Oyvp7enfolTr#PxCD8xjAUJgmim#LPYvXd0c8w4MMun$u" +
+		"KUEWhFFIdUUWlT5b5bEcL4#9zd132w#1AhTnETEJcPblQATkkabw4I1o7M8xToH#Amr32yN" +
+		"0S0RyQ6p4BySglY7m3BiObc8qvc8j6sIsxbUuAOpNoAHBbMrp7$vMM12TX74vMOmzfbtRSW" +
+		"6JM$K2a8Wtp#H#AnSZ6PSZaitCnYbz69OvanIuWNuDJC1cJYDDHZyin4$FaEooKRt0Lhi7L" +
+		"k1OtuYPOloL8P8KdywjBPOzBOzzAP#mCnirYrMUpxdDOtxbcXUNpkofWlVqVFRhQNeCE7tj" +
+		"gDxxp2FET6s#wBsiWYk#f1$S#XXKHt4ephQ8yh7gPLf41AwyClVIQ#HphALKkreQLcxuZMh" +
+		"2STNQGA7wvxYi3pzjmLXPg5tL6yVzd#zFL#k2hiBoYGtg7Nll1amRFxT$RTfKqWZqsdhLHn" +
+		"DuNmJuzYhUCqUo85Uo9rgZnRXMf$Ah9zsV$7i1kci2Rd$5rTkYirHXpF#zZlNaJioJMlSmQ" +
+		"VTJvMVS#rdqqkNwyeSPn5ir$AUV5f2NCCvudb4v9YUaHnnFBG3nFBR$fPr2DQ#Z9cOPeCN$" +
+		"i0a1JezMR3T9AD1CjW3wRz0b0ooG$XpIfKHbPzde3X#saTn2BgAyahQNiDjAfAkP3v1VO$P" +
+		"pWJsXJhMBUecJho2zKihiP#sNIsqbZI1UJ3bAw#ybl8hsNj5p9xhIejbJDxzd$ULeVOelIJ" +
+		"IRVJbf7kfDq7ka#fOkrhVLX8eMuIysNAJe$#9hqvKGsqQpczobQH3pWjXz1ObKG3pfaDKHB" +
+		"9$qxzg69M47cUzARYPLSwmI7xNhY4M8jiSecRrNqEMBrFtACj$5jr0sq#IGUc8jsgqrVry6" +
+		"p43VR#5tXx8$j#Nx7l4rHLIieiEKHgsGrZlnoGiVNIbNUgHpU99r6cL7xzQJRbCqUXq$jWN" +
+		"7qMIvhQBRPpL0nff2VsTbzK77M1Cb$RZWnL0uDYjORFI1Ctqb1ycg2#ibU#Ska7ELt#Kr#X" +
+		"UCdlvZZL$AbR9Clv7FPAf$9HafOlxB5r7qIiFsOs1oOVKHyI7n0l2$loZl2FYQRX6zDtY1U" +
+		"8bZ9yfGyQMZ8lIKRvMrvKPwHfsMz$2m$oGvJ$gYqoYhILbafpygFyeDibyTbdQoLDVAOh3P" +
+		"jLiXoQJ6vPVA2F2#loslogcoGLuHTIzxRRqrVomxP5PZjPBNlbJzD$WyE4tccQ0Hun#lEdc" +
+		"$STy2#x#CPenFWEQC5C8RdKGLFaahp9D42IB8XcRx6kJ2MlcNaoqXBES#XBXGAgI#atN3Qv" +
+		"n9vFENoU5wD8FAf6sd2nrkgphk7PYARyrHI0uEPat4V6KPPDMamP55dt0MB5J8vDsuZ9JQa" +
+		"C7uAQPeBXl1PLRGhftyvSqud7KgvWGpou$u6FsMB80==");
 
 	static final Action RETURN6 = new Action() {
 		public Symbol reduce(Symbol[] _symbols, int offset) {
@@ -153,19 +152,19 @@ public class Parser extends beaver.Parser {
 			Action.RETURN,	// [19] Primitive = INT
 			RETURN3,	// [20] Array = Type_Name LBRACKET RBRACKET; returns 'RBRACKET' although none is marked
 			RETURN2,	// [21] ParamList = Parameter ParamListTail; returns 'ParamListTail' although none is marked
-			RETURN3,	// [22] ParamListTail = COMMA Parameter ParamListTail; returns 'ParamListTail' although none is marked
-			Action.NONE,  	// [23] ParamListTail = 
-			RETURN2,	// [24] Parameter = Type_Name ID; returns 'ID' although none is marked
-			Action.RETURN,	// [25] Statement = Local_Variable
-			Action.RETURN,	// [26] Statement = Block_Statements
-			Action.RETURN,	// [27] Statement = If_Statement
-			Action.RETURN,	// [28] Statement = While_Statement
-			Action.RETURN,	// [29] Statement = Break_Statement
-			Action.RETURN,	// [30] Statement = Return_Statement
-			Action.RETURN,	// [31] Statement = Expression_Statement
-			RETURN2,	// [32] StatementList = Statement StatementListTail; returns 'StatementListTail' although none is marked
-			RETURN2,	// [33] StatementListTail = Statement StatementListTail; returns 'StatementListTail' although none is marked
-			Action.NONE,  	// [34] StatementListTail = 
+			Action.NONE,  	// [22] ParamList = 
+			RETURN3,	// [23] ParamListTail = COMMA Parameter ParamListTail; returns 'ParamListTail' although none is marked
+			Action.NONE,  	// [24] ParamListTail = 
+			RETURN2,	// [25] Parameter = Type_Name ID; returns 'ID' although none is marked
+			Action.RETURN,	// [26] Statement = Local_Variable
+			Action.RETURN,	// [27] Statement = Block_Statements
+			Action.RETURN,	// [28] Statement = If_Statement
+			Action.RETURN,	// [29] Statement = While_Statement
+			Action.RETURN,	// [30] Statement = Break_Statement
+			Action.RETURN,	// [31] Statement = Return_Statement
+			Action.RETURN,	// [32] Statement = Expression_Statement
+			RETURN2,	// [33] StatementList = Statement StatementList; returns 'StatementList' although none is marked
+			Action.NONE,  	// [34] StatementList = 
 			RETURN3,	// [35] Local_Variable = Type_Name ID SEMICOLON; returns 'SEMICOLON' although none is marked
 			RETURN3,	// [36] Block_Statements = LCURLY StatementList RCURLY; returns 'RCURLY' although none is marked
 			RETURN7,	// [37] If_Statement = IF LPAREN Expression RPAREN Statement ELSE Statement; returns 'Statement' although none is marked
