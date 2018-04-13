@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="ParserTests" project="Lab2" tests="3" started="3" failures="0" errors="0" ignored="0">
-  <testsuite name="test.ParserTests" time="0.023">
-    <testcase name="testEmptyModule" classname="test.ParserTests" time="0.018"/>
-    <testcase name="testArrayExpression" classname="test.ParserTests" time="0.002"/>
-    <testcase name="testFunctionCall" classname="test.ParserTests" time="0.003"/>
-  </testsuite>
-</testrun>

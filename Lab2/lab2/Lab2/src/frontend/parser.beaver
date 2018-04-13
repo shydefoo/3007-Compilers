@@ -119,11 +119,11 @@ Expression = Assignment
 	
 Assignment = LHS_Expression EQL Expression;
 
-LHS_Expression = Type_Name
-	| Array_Access
-	;
+LHS_Expression = Type_Name LHS_ExpressionTail;
 	
-Array_Access = LHS_Expression LBRACKET Expression RBRACKET;
+LHS_ExpressionTail = LBRACKET Expression RBRACKET LHS_ExpressionTail
+	|
+	;
 
 RHS_Expression = Arithmetic_Expression
 	| Arithmetic_Expression Compare Arithmetic_Expression
