@@ -113,8 +113,7 @@ public class ExprCodeGenerator extends Visitor<Value> {
 	public Value visitBooleanLiteral(BooleanLiteral nd) {
 		/* TODO: return something meaningful here (hint: translate 'true' to integer
 		 *       constant 1, 'false' to integer constant 0) */
-		int value = nd.getValue()==true ? 1:0;
-		return IntConstant.v(value);
+		return nd.getValue()==true ? IntConstant.v(1):IntConstant.v(0);
 	}
 	
 	/** Generate code for an array literal. */
@@ -135,9 +134,10 @@ public class ExprCodeGenerator extends Visitor<Value> {
 	@Override
 	public Value visitArrayIndex(ArrayIndex nd) {
 		/* TODO: generate code for array index */
-		final Value base = wrap(nd.getBase().accept(this)),
-				index = wrap(nd.getIndex().accept(this));
-		return Jimple.v().newArrayRef(base,index);
+        Value left = wrap(nd.getBase().accept(this));
+        Value right = wrap(nd.getIndex().accept(this));
+         
+        return Jimple.v().newArrayRef(left,right);
 		
 	}
 	
@@ -164,8 +164,9 @@ public class ExprCodeGenerator extends Visitor<Value> {
 		 *       visitSubExpr, etc., instead
 		 */
 		
-		final Value left = wrap(nd.getLeft().accept(this)),
-				right = wrap(nd.getRight().accept(this));
+		final Value left = wrap(nd.getLeft().accept(this));
+		final Value right = wrap(nd.getRight().accept(this));
+		
 		Visitor<Value> binaryExVisitor = new Visitor<Value>(){
 			@Override
 			public Value visitAddExpr(AddExpr nd) {

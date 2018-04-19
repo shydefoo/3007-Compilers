@@ -160,7 +160,7 @@ public class CompilerTests {
 				new Object[0],
 				42);
 	}
-	
+
 	@Test public void testDivision() {
 		runtest("module Test {" +
 				"  public int f() {" +
